@@ -2,12 +2,20 @@
 
 namespace app\controller;
 
+use app\BaseController;
+use JetBrains\PhpStorm\NoReturn;
+use think\App;
 use think\Request;
 
-class Base
+class Base extends BaseController
 {
-    protected Request $request;
-    public function __construct(Request $request){
-        $this->request = $request;
+    protected string $controller;
+
+    protected string $method;
+
+
+    #[NoReturn] public function __construct(App $app){
+        parent::__construct($app);
+        dd($this->request);
     }
 }
