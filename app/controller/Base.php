@@ -19,5 +19,6 @@ class Base extends BaseController
         $this->controller = $app->request->controller();
         $this->method = $app->request->method();
         dd($this->request);
+
     }
 }
