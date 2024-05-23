@@ -16,6 +16,8 @@ class Base extends BaseController
 
     #[NoReturn] public function __construct(App $app){
         parent::__construct($app);
+        $this->controller = $app->request->controller();
+        $this->method = $app->request->method();
         dd($this->request);
     }
 }
