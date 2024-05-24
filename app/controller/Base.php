@@ -18,7 +18,9 @@ class Base extends BaseController
         parent::__construct($app);
         $this->controller = $app->request->controller();
         $this->method = $app->request->method();
-        dd($this->request);
+        //获取验证器
+        $validate_space = "app\\validate\\{$this->controller}";
+        dd($validate_space);
 
     }
 }
