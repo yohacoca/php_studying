@@ -20,7 +20,6 @@ class Base extends BaseController
         $this->method = $app->request->method();
         //获取验证器
         $validate_space = "app\\validate\\{$this->controller}";
-        dd($validate_space);
-
+        $isTrue = $this->validate($this->request->param(), $validate_space);
     }
 }
