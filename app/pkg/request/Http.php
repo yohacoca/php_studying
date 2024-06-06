@@ -21,9 +21,9 @@ class Http
         return $http;
     }
 
-    public function path(string $path)
+    public function path(string $path): void
     {
-        $http->path = $path;
+        $this->path = $path;
     }
 
 }
