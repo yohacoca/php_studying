@@ -26,6 +26,13 @@ class Http
         return $this;
     }
 
+    public function header(array $header): Http
+    {
+        $this->header = $header;
+        return $this;
+    }
+
+
     public function param(array $param): Http
     {
         $this->param = $param;
