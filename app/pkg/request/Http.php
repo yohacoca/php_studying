@@ -26,4 +26,10 @@ class Http
         return $this;
     }
 
+    public function param(array $param): Http
+    {
+        $this->param = $param;
+        return $this;
+    }
+
 }
