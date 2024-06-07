@@ -1,7 +1,6 @@
 <?php
 namespace app\pkg\request;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class Http
 {
@@ -21,9 +20,10 @@ class Http
         return $http;
     }
 
-    public function path(string $path): void
+    public function path(string $path): Http
     {
         $this->path = $path;
+        return $this;
     }
 
 }
