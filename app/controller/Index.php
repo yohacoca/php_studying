@@ -9,7 +9,9 @@ class Index extends BaseController
 {
     public function index()
     {
-        $db = Http::url("http://47.94.153.175/")->send();
+        $db = Http::url("http://47.94.153.175/")
+            ->path('api')
+            ->send();
         dd($db);
     }
 
