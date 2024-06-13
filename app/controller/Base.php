@@ -5,7 +5,6 @@ namespace app\controller;
 use app\BaseController;
 use JetBrains\PhpStorm\NoReturn;
 use think\App;
-use think\Request;
 
 class Base extends BaseController
 {

@@ -5,7 +5,7 @@ namespace app\controller;
 use app\BaseController;
 use app\pkg\request\Http;
 
-class Index extends BaseController
+class Index extends Base
 {
     public function index()
     {
