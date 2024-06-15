@@ -11,6 +11,7 @@ class File
         $this->file = fopen($path, "a+");
     }
 
+
     public function __destruct()
     {
         fclose($this->file);
