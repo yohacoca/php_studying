@@ -2,15 +2,15 @@
 
 namespace app\controller;
 
-use app\BaseController;
+use app\controller\Base;
 use app\pkg\request\Http;
 
 class Index extends Base
 {
     public function index()
     {
-        $db = Http::url("http://47.94.153.175/")
-            ->path('api')
+        $db = Http::url("http://47.94.153.175")
+            ->path('/api/list')
             ->send();
         dd($db);
     }

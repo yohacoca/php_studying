@@ -18,7 +18,11 @@ class Http
     public static function url(string $url): Http
     {
         $http = new Http();
+        // 初始化请求参数
         $http->url = $url;
+        $http->header = [];
+        $http->query = [];
+        $http->param = [];
         return $http;
     }
     public function path(string $path): Http
@@ -26,21 +30,7 @@ class Http
         $this->path = $path;
         return $this;
     }
-    public function header(array $header): Http
-    {
-        $this->header = $header;
-        return $this;
-    }
-    public function query(array $param): Http
-    {
-        $this->query = $param;
-        return $this;
-    }
-    public function param(array $param): Http
-    {
-        $this->param = $param;
-        return $this;
-    }
+
     public function get(): string
     {
         $client = new Client();
@@ -49,11 +39,7 @@ class Http
             'query' => $this->query,
         ]);
         $body = $response->getBody();
-        return $body->getContents();
-    }
-    public function post()
-    {
-
+        return json_decode($body->getContents(), true, 512, JSON_UNESCAPED_UNICODE);
     }
 
 }
