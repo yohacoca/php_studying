@@ -11,7 +11,7 @@ class Index extends Base
     {
         $db = Http::url("http://47.94.153.175")
             ->path('/api/list')
-            ->send();
+            ->get();
         dd($db);
     }
 
