@@ -4,15 +4,16 @@ namespace app\controller;
 
 use app\controller\Base;
 use app\pkg\request\Http;
+use think\response\Json;
 
 class Index extends Base
 {
-    public function index()
+    public function index(): Json
     {
-        $db = Http::url("http://47.94.153.175")
+        $data = Http::url("http://47.94.153.175")
             ->path('/api/list')
             ->get();
-        dd($db);
+        return json($data);
     }
 
 }

@@ -15,6 +15,7 @@ class Http
     public array $query;
     // 参数
     public array $param;
+
     public static function url(string $url): Http
     {
         $http = new Http();
@@ -30,8 +31,7 @@ class Http
         $this->path = $path;
         return $this;
     }
-
-    public function get(): string
+    public function get(): array
     {
         $client = new Client();
         $response = $client->get($this->url . $this->path,[
