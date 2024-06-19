@@ -1,7 +1,9 @@
 <?php
 namespace app\pkg\request;
 
+use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class Http
 {
@@ -15,6 +17,34 @@ class Http
     public array $query;
     // 参数
     public array $param;
+
+
+    public function get(): array
+    {
+        $data = [
+            'code' => 400,
+            'msg' => '',
+            'data' => []
+        ];
+        try {
+            $client = new Client();
+            $response = $client->get($this->url . $this->path,[
+                "header" => $this->header,
+                'query' => $this->query,
+            ]);
+            // 服务器500 抛出异常
+            if (200 !== $response->getStatusCode()){
+                throw new Exception("server return err; " . $response->getStatusCode());
+            }
+            $responseData = $response->getBody()->getContents();
+            $data['code'] = 200;
+            $data['data'] = json_decode($responseData, true, JSON_UNESCAPED_UNICODE);
+        }catch (RequestException|Exception $exception){
+            $data['msg'] = $exception->getMessage();
+        }finally{
+            return $data;
+        }
+    }
 
     public static function url(string $url): Http
     {
@@ -30,16 +60,6 @@ class Http
     {
         $this->path = $path;
         return $this;
-    }
-    public function get(): array
-    {
-        $client = new Client();
-        $response = $client->get($this->url . $this->path,[
-            "header" => $this->header,
-            'query' => $this->query,
-        ]);
-        $body = $response->getBody();
-        return json_decode($body->getContents(), true, 512, JSON_UNESCAPED_UNICODE);
     }
 
 }
