@@ -19,13 +19,8 @@ class Http
     public array $param;
 
 
-    public function get(): array
+    public function get(&$data): bool
     {
-        $data = [
-            'code' => 400,
-            'msg' => '',
-            'data' => []
-        ];
         try {
             $client = new Client();
             $response = $client->get($this->url . $this->path,[
@@ -37,12 +32,11 @@ class Http
                 throw new Exception("server return err; " . $response->getStatusCode());
             }
             $responseData = $response->getBody()->getContents();
-            $data['code'] = 200;
-            $data['data'] = json_decode($responseData, true, JSON_UNESCAPED_UNICODE);
-        }catch (RequestException|Exception $exception){
+            $data = json_decode($responseData, true, JSON_UNESCAPED_UNICODE);
+            return true;
+        }catch (RequestException|Exception $exception) {
             $data['msg'] = $exception->getMessage();
-        }finally{
-            return $data;
+            return false;
         }
     }
 
