@@ -2,7 +2,9 @@
     "name": "liuhua/php_way",
     "autoload": {
         "psr-4": {
-            "Liuhua\\PhpWay\\": "src/"
+            "algorithm\\": "algorithm",
+            "design\\": "design",
+            "tools\\": "tools"
         }
     },
     "authors": [

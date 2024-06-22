@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/algorithm" isTestSource="false" packagePrefix="algorithm\" />
+      <sourceFolder url="file://$MODULE_DIR$/design" isTestSource="false" packagePrefix="design\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools" isTestSource="false" packagePrefix="tools\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
