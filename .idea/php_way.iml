@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/algorithm" isTestSource="false" packagePrefix="algorithm\" />
       <sourceFolder url="file://$MODULE_DIR$/design" isTestSource="false" packagePrefix="design\" />
       <sourceFolder url="file://$MODULE_DIR$/tools" isTestSource="false" packagePrefix="tools\" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="false" packagePrefix="test\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
     </content>
     <orderEntry type="inheritedJdk" />

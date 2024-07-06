@@ -1,21 +1,12 @@
 <?php
 
-use algorithm\base\sort\Bubble;
+use test\algorithm\Sort;
 
 class App
 {
-    public function run()
+    public function run(): void
     {
-        $this->sort();
+        Sort::test();
     }
-
-    public function sort(){
-        // 待排序数组
-        $array = [64, 34, 25, 12, 22, 11, 90];
-        Bubble::bubble($array);
-        print_r($array);
-    }
-
-
 
 }
