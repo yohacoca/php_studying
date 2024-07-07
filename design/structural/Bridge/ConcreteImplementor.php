@@ -1,5 +1,7 @@
 <?php
-namespace Structural\Bridge;
+declare(strict_types=1);
+
+namespace design\structural\Bridge;
 
 class ConcreteImplementor implements Implementor
 {

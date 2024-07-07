@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Structural\Bridge;
+namespace design\structural\Bridge;
 
 interface Implementor
 {

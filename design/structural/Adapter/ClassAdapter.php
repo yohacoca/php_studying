@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Structural\Adapter;
+namespace design\structural\Adapter;
 
 class ClassAdapter extends Adaptee implements Target
 {

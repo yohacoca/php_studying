@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Structural\Composite;
+namespace design\structural\Composite;
 
 class Leaf implements Component
 {
