@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Structural\Decorator;
+namespace design\structural\Decorator;
 
 abstract class Decorator implements Component
 {

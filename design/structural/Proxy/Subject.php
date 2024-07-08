@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Structural\Proxy;
+namespace design\structural\Proxy;
 
 interface Subject
 {

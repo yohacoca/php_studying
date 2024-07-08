@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Structural\Facade;
+namespace design\structural\Facade;
 
 class Facade
 {
