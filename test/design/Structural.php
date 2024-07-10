@@ -29,4 +29,11 @@ class Structural
         $func($adapter);
 
     }
+
+    public function Bridge(): void
+    {
+        // 桥接模式
+
+
+    }
 }
