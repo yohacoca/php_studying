@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace test\design;
 
@@ -33,6 +34,11 @@ class Structural
     public function Bridge(): void
     {
         // 桥接模式
+        // Abstraction 抽象类
+        // RefinedAbstraction 扩充抽象类
+        // Implementor 实现类接口
+        // ConcreteImplementor 具体实现类
+
 
 
     }
