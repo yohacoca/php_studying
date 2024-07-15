@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-use test\algorithm\Sort;
-
 class App
 {
     public function run(): void
     {
-        Sort::test();
+        echo "design".PHP_EOL;
+        echo "algorithm".PHP_EOL;
+        echo "tools".PHP_EOL;
     }
 
 }
