@@ -17,7 +17,7 @@ class Test extends TestCase
         // Adapter 适配器
 
         // 简单来说, 目前我只能支持Target类型, 但我需要使用Adaptee里面的方法,
-        // 就需要适配器实现Target继承Adaptee或依赖Adaptee
+        // 就需要适配器实现Target继承Adaptee或关联Adaptee
 
         // func 只支持Target
         $func = function(Target $target){
