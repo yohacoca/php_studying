@@ -19,6 +19,9 @@ class Test extends TestCase
         // 代理主题关联真实主题
         // 在想要调用真实主题方法的时候,
         // 由代理主题里的同名方法去调用真是主题方法, 能够做前置准备或其它准备,
+        $proxy = new ProxySubject();
+        $proxy->request();
 
+        $this->assertTrue(true);
     }
 }
