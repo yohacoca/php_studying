@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class Test extends TestCase
 {
-    public function test()
+    public function test(): void
     {
 
         // 代理模式
