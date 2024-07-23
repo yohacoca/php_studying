@@ -8,10 +8,10 @@ class Facade
     private SubSystem1 $subSystem1;
     private SubSystem2 $subSystem2;
 
-    public function __construct(SubSystem1 $subSystem1, SubSystem2 $subSystem2)
+    public function __construct()
     {
-        $this->subSystem1 = $subSystem1;
-        $this->subSystem2 = $subSystem2;
+        $this->subSystem1 = new SubSystem1;
+        $this->subSystem2 = new SubSystem2;
     }
 
     public function request(): void
