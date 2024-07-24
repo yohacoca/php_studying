@@ -15,5 +15,9 @@ class Test extends TestCase
         // SubSystem 子系统类
 
         // 简单来说, 在门面类实现对子系统一系列操作的的封装
+        $facade = new Facade();
+        $facade->request();
+
+        $this->assertTrue(true);
     }
 }
