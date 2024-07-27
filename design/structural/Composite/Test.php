@@ -10,7 +10,7 @@ class Test extends TestCase
     public function test():void
     {
 
-        // 门面模式
+        // 组合模式
         // Component 抽象根节点
         // Composite 树枝节点
         // Leaf 叶子节点
