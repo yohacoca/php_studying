@@ -16,11 +16,13 @@ class Test extends TestCase
         // Implementor 实现类
         // ConcreteImplementor 具体实现类
 
-        // 简单来说, 树枝节点和叶子节点共同实现抽象根节点
-        // 而树枝节点关联多个叶子节点
+        $refined = new RefinedAbstraction();
 
+        $refined->set(new ConcreteImplementor());
 
+        $refined->feature();
 
         $this->assertTrue(true);
     }
+
 }
