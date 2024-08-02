@@ -19,4 +19,14 @@ class Test extends TestCase
         print_r($this->nums);
         $this->assertTrue(true);
     }
+
+
+    public function test_quick():void
+    {
+        Quick::quick($this->nums);
+        print_r($this->nums);
+        $this->assertTrue(true);
+    }
+
+
 }
