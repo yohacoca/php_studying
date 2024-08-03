@@ -29,4 +29,10 @@ class Test extends TestCase
     }
 
 
+    public function test_selection():void
+    {
+        Selection::selection($this->nums);
+        print_r($this->nums);
+        $this->assertTrue(true);
+    }
 }
