@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace tools\jwt;
+namespace tools\package\jwt;
 
-use PHPUnit\Framework\TestCase;
 use Firebase\JWT\JWT as FirebaseJWT;
 use Firebase\JWT\Key;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 
 
