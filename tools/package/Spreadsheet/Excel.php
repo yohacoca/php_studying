@@ -12,7 +12,9 @@ use PHPUnit\Framework\TestCase;
 
 class Excel extends TestCase
 {
-    public function test()
+
+    // test_save 创建excel文件测试
+    public function test_save()
     {
 
         $spreadsheet = new Spreadsheet();
