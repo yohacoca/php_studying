@@ -17,14 +17,11 @@ use stdClass;
 
 class RsJwt extends TestCase
 {
-
-
     public static string $alg = 'RS512';
     // (Not Before): 某个时间点后才能访问, 比如设置time+30, 表示当前时间30秒后才能使用
     public static int $nbf = 0;
     // 过期时间,这里设置2个小时
     public static int $exp = 7200;
-
 
     public static string $public_key = <<<EOD
     -----BEGIN PUBLIC KEY-----
@@ -69,7 +66,6 @@ class RsJwt extends TestCase
     -----END PRIVATE KEY-----
     EOD;
 
-
     // encode 加密jwt
     public static function encode($data): string
     {
@@ -92,7 +88,7 @@ class RsJwt extends TestCase
         return FirebaseJWT::decode($token, new Key(self::$public_key, self::$alg));
     }
 
-    public function test()
+    public function test():void
     {
         $data = array('user' => 'admin', 'msg' => 'test');
         $jwt = $this->encode($data);
