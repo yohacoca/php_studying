@@ -13,7 +13,7 @@ use stdClass;
 
 // key 服务器key
 // alg 签名算法
-// 非对称RS256 使用公钥和私钥
+// 非对称RS512 使用公钥和私钥
 
 class RsJwt extends TestCase
 {
