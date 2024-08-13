@@ -11,10 +11,10 @@ use stdClass;
 
 // 安装 composer require firebase/php-jwt
 // 使用 需要传递的用户信息使用encode加密生成token, 使用decode方法进行解密获取用户信息
+
 // key 服务器key
 // alg 签名算法
 // 对称加密SHA256 使用一个公钥
-// 非对称RS256 使用公钥和私钥
 
 class Jwt extends TestCase
 {
