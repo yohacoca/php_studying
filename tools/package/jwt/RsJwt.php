@@ -23,6 +23,7 @@ class RsJwt extends TestCase
     // 过期时间,这里设置2个小时
     public static int $exp = 7200;
 
+    // 公钥
     public static string $public_key = <<<EOD
     -----BEGIN PUBLIC KEY-----
     MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk98ytzwTZpLTWpSgX/8I
@@ -35,6 +36,7 @@ class RsJwt extends TestCase
     -----END PUBLIC KEY-----
     EOD;
 
+    // 私钥
     public static string $private_key = <<<EOD
     -----BEGIN PRIVATE KEY-----
     MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCT3zK3PBNmktNa
