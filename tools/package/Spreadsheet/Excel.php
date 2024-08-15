@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace tools\package\Spreadsheet;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PHPUnit\Framework\TestCase;
 
@@ -13,15 +14,25 @@ use PHPUnit\Framework\TestCase;
 class Excel extends TestCase
 {
 
-    // test_save 创建excel文件测试
-    public function test_save()
+    // test_create 创建excel文件测试
+    public function test_create()
     {
 
         $spreadsheet = new Spreadsheet();
-        $activeWorksheet = $spreadsheet->getActiveSheet();
-        $activeWorksheet->setCellValue('A1', 'Hello World !');
-        $writer = new Xlsx($spreadsheet);
-        $writer->save('hello world.xlsx');
+        $xlsx = new Xlsx($spreadsheet);
+        $xlsx->save('hello.xlsx');
+
+        $this->assertTrue(true);
+    }
+
+
+    // test_reader 读取excel文件测试
+    public function test_reader()
+    {
+
+        $reader = IOFactory::createReader('Xlsx');
+        $reader->setReadDataOnly(TRUE);
+        $spreadsheet = $reader->load('hello.xlsx');
 
         $this->assertTrue(true);
     }
