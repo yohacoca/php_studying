@@ -33,7 +33,30 @@ class Excel extends TestCase
         $reader = IOFactory::createReader('Xlsx');
         $reader->setReadDataOnly(TRUE);
         $spreadsheet = $reader->load('hello.xlsx');
+        $worksheet = $spreadsheet->getActiveSheet();
+        $row = $worksheet->getHighestRow(); // 总行数
+        $column = $worksheet->getHighestColumn(); // 总列数
 
         $this->assertTrue(true);
     }
+
+    // test_writer 读取excel文件测试
+    public function test_writer()
+    {
+
+        // 创建一个sheet对象
+        $spreadsheet = new Spreadsheet();
+
+        // 创建一个新的表
+        $worksheet = $spreadsheet->getActiveSheet();
+        // 设置表名
+        $worksheet->setTitle('测试表');
+
+        // 创建一个文件 将sheet保存
+        $xlsx = new Xlsx($spreadsheet);
+        $xlsx->save('hello.xlsx');
+
+        $this->assertTrue(true);
+    }
+
 }
