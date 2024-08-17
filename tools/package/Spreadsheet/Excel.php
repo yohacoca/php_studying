@@ -44,12 +44,12 @@ class Excel extends TestCase
     public function test_writer()
     {
 
-        // 创建一个sheet对象
+        // Create a new PhpSpreadsheet with one Worksheet.
         $spreadsheet = new Spreadsheet();
 
-        // 创建一个新的表
+        // Get active sheet.
         $worksheet = $spreadsheet->getActiveSheet();
-        // 设置表名
+        // 设置sheet名
         $worksheet->setTitle('测试表');
 
         // 创建一个文件 将sheet保存
