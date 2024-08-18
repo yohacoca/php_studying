@@ -92,10 +92,17 @@ class RsJwt extends TestCase
 
     public function test():void
     {
+
+        // 自定义数据
         $data = array('user' => 'admin', 'msg' => 'test');
-        $jwt = $this->encode($data);
-        $decode = (array)$this->decode($jwt)->data;
-        var_dump($decode);
-        $this->assertTrue(true);
+
+        // 加密生成token
+        $token = $this->encode($data);
+
+        // 解密得到标准对象 转为数组
+        $jwt = $this->decode($token);
+
+        // 测试
+        $this->assertTrue( (array)$jwt->data == $data);
     }
 }
