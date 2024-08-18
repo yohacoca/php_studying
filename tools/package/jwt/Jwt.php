@@ -18,9 +18,11 @@ use stdClass;
 
 class Jwt extends TestCase
 {
+    // key
     public static string $key = 'KEY-TEST';
+    // 加密算法
     public static string $alg = 'HS256';
-    // (Not Before): 某个时间点后才能访问, 比如设置time+30, 表示当前时间30秒后才能使用
+    // (Not Before) 某个时间点后才能访问, 比如设置time+30, 表示当前时间30秒后才能使用
     public static int $nbf = 0;
     // 过期时间,这里设置2个小时
     public static int $exp = 7200;
@@ -32,11 +34,11 @@ class Jwt extends TestCase
         $time = time();
         $token = [
             'iss' => 'issued',            // 签发者 可选
-            'aud' => 'receive',           // 接收者
+            'aud' => 'receive',           // 接收者 可选
             'iat' => $time,               // 签发时间
             'nbf' => $time + self::$nbf,
             'exp' => $time + self::$exp,
-            'data' => $data
+            'data' => $data               // 加密数据
         ];
         return FirebaseJWT::encode($token, self::$key, self::$alg);
     }
@@ -49,9 +51,16 @@ class Jwt extends TestCase
 
     public function test()
     {
+        // 自定义数据
         $data = array('user' => 'admin', 'msg' => 'test');
-        $jwt = $this->encode($data);
-        $decode = (array)$this->decode($jwt)->data;
-        $this->assertTrue($decode == $data);
+
+        // 加密生成token
+        $token = $this->encode($data);
+
+        // 解密得到标准对象 转为数组
+        $jwt = $this->decode($token);
+
+        // 测试
+        $this->assertTrue( (array)$jwt->data == $data);
     }
 }
