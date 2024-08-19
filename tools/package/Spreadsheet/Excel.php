@@ -14,8 +14,8 @@ use PHPUnit\Framework\TestCase;
 class Excel extends TestCase
 {
 
-    // test_create 创建excel文件测试
-    public function test_create()
+    // test_create 创建文件测试
+    public function test_create(): void
     {
 
         $spreadsheet = new Spreadsheet();
@@ -26,33 +26,32 @@ class Excel extends TestCase
     }
 
 
-    // test_reader 读取excel文件测试
-    public function test_reader()
+    // test_reader 加载文件测试
+    public function test_load(): void
     {
 
         $reader = IOFactory::createReader('Xlsx');
         $reader->setReadDataOnly(TRUE);
         $spreadsheet = $reader->load('hello.xlsx');
-        $worksheet = $spreadsheet->getActiveSheet();
-        $row = $worksheet->getHighestRow(); // 总行数
-        $column = $worksheet->getHighestColumn(); // 总列数
 
         $this->assertTrue(true);
     }
 
-    // test_writer 读取excel文件测试
-    public function test_writer()
+    public function test_activate()
+    {
+
+    }
+
+    // test_writer 写入单元格
+    public function test_writer(): void
     {
 
         // Create a new PhpSpreadsheet with one Worksheet.
         $spreadsheet = new Spreadsheet();
-
         // Get active sheet.
-        $worksheet = $spreadsheet->getActiveSheet();
-        // 设置sheet名
-        $worksheet->setTitle('测试表');
+        $activeSheet = $spreadsheet->getActiveSheet();
 
-        // 创建一个文件 将sheet保存
+        // 保存
         $xlsx = new Xlsx($spreadsheet);
         $xlsx->save('hello.xlsx');
 
