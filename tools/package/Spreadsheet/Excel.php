@@ -46,9 +46,7 @@ class Excel extends TestCase
     public function test_writer(): void
     {
 
-        // Create a new PhpSpreadsheet with one Worksheet.
         $spreadsheet = new Spreadsheet();
-        // Get active sheet.
         $activeSheet = $spreadsheet->getActiveSheet();
 
         // 保存
