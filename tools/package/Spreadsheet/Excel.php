@@ -55,5 +55,20 @@ class Excel extends TestCase
 
         $this->assertTrue(true);
     }
+    public function test_sheet()
+    {
 
+        $spreadsheet = new Spreadsheet();
+        // getSheetCount 获取Sheet的数量
+        $_ = $spreadsheet->getSheetCount();
+
+        // getSheetCount 获取Sheet的名字列表
+        $_ = $spreadsheet->getSheetNames();
+
+        // createSheet 创建新的sheet index为指定sheet列表的下标
+        // 返回创建的sheet对象
+        $_ = $spreadsheet->createSheet(0);
+
+        $this->assertTrue(true);
+    }
 }
