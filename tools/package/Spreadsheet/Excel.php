@@ -69,11 +69,22 @@ class Excel extends TestCase
         // createSheet 创建新的sheet index为指定sheet列表的下标(可为空)
         // 返回创建的sheet对象
         $_ = $spreadsheet->createSheet(0);
+        $_ = $spreadsheet->createSheet(0);
+        $_ = $spreadsheet->createSheet(0);
+        $_ = $spreadsheet->createSheet(0);
 
         // getActiveSheetIndex 获取当前sheet对象指针下标
         $_ = $spreadsheet->getActiveSheetIndex();
 
+        var_dump($spreadsheet->getActiveSheetIndex());
+
         var_dump($_);
+
+        $_ = $spreadsheet->setActiveSheetIndexByName('Worksheet 4');
+
+        var_dump($spreadsheet->getSheetNames());
+        var_dump($spreadsheet->getActiveSheetIndex());
+
 
 //        $_ = $spreadsheet->getActiveSheet();
 //        $_ = $spreadsheet->getSheet();
