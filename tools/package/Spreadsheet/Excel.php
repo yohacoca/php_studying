@@ -66,9 +66,6 @@ class Excel extends TestCase
         // getSheetCount 获取Sheet的名字列表
         $_ = $spreadsheet->getSheetNames();
 
-        var_dump($spreadsheet->getActiveSheetIndex());
-        var_dump($spreadsheet->getActiveSheet()->getCodeName());
-
         // createSheet 创建新的sheet index为指定sheet列表的下标(可为空)
         // 返回创建的sheet对象
         $_ = $spreadsheet->createSheet(0);
@@ -76,17 +73,9 @@ class Excel extends TestCase
         // getActiveSheetIndex 获取当前sheet对象指针下标
         $_ = $spreadsheet->getActiveSheetIndex();
 
-        var_dump($spreadsheet->getActiveSheetIndex());
-        var_dump($spreadsheet->getActiveSheet()->getCodeName());
+        // getActiveSheetIndex 根据name切换到active
+        $_ = $spreadsheet->setActiveSheetIndexByName('Worksheet 3');
 
-        $_ = $spreadsheet->setActiveSheetIndexByName('Worksheet 1');
-
-        var_dump($spreadsheet->getActiveSheetIndex());
-        var_dump($spreadsheet->getActiveSheet()->getCodeName());
-
-
-//        $_ = $spreadsheet->getActiveSheet();
-//        $_ = $spreadsheet->getSheet();
 
         $this->assertTrue(true);
     }
