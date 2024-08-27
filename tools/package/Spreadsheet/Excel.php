@@ -33,7 +33,8 @@ class Excel extends TestCase
         $reader = IOFactory::createReader('Xlsx');
         $reader->setReadDataOnly(TRUE);
         $spreadsheet = $reader->load('hello.xlsx');
-
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->getCell("A1")->setValue("123");
         $this->assertTrue(true);
     }
 
@@ -57,7 +58,6 @@ class Excel extends TestCase
     }
     public function test_sheet()
     {
-
 
         $spreadsheet = new Spreadsheet();
         // getSheetCount 获取Sheet的数量
