@@ -76,7 +76,6 @@ class Excel extends TestCase
         // getActiveSheetIndex 根据name切换到active
         $_ = $spreadsheet->setActiveSheetIndexByName('Worksheet 3');
 
-
         $this->assertTrue(true);
     }
 }
