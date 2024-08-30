@@ -41,11 +41,6 @@ class Excel extends TestCase
         $this->assertTrue(true);
     }
 
-    public function test_activate()
-    {
-
-    }
-
     // test_writer 写入单元格
     public function test_writer(): void
     {
