@@ -25,6 +25,7 @@ class Excel extends TestCase
         // 保存
         $xlsx->save('hello.xlsx');
 
+
         $this->assertTrue(true);
     }
 
@@ -32,12 +33,18 @@ class Excel extends TestCase
     // test_reader 加载文件测试
     public function test_load(): void
     {
-
+        // 创建读取器对象
         $reader = IOFactory::createReader('Xlsx');
+        // 只读取数据
         $reader->setReadDataOnly(TRUE);
-        $spreadsheet = $reader->load('hello.xlsx');
-        $sheet = $spreadsheet->getActiveSheet();
-        $sheet->getCell("A1")->setValue("123");
+        // 加载文件
+        $xlsx = $reader->load('hello.xlsx');
+        // 获取活动工作表
+        $sheet = $xlsx->getActiveSheet();
+        // 获取数据
+        $sheet->getCell("A1")->getValue();
+
+
         $this->assertTrue(true);
     }
 
