@@ -51,17 +51,20 @@ class Excel extends TestCase
     // test_writer 写入单元格
     public function test_writer(): void
     {
+        // 创建新的 Spreadsheet 对象
+        $spreadSheet = new SpreadSheet();
+        // 获取活动工作表
+        $sheet = $spreadSheet->getActiveSheet();
+        // 写入单元格
+        $sheet->getCell("A1")->setValue("hello");
 
-        $spreadsheet = new Spreadsheet();
-        $activeSheet = $spreadsheet->getActiveSheet();
-
-        // 保存
-        $xlsx = new Xlsx($spreadsheet);
+        // 将 Spreadsheet 保存到文件
+        $xlsx = new Xlsx($spreadSheet);
         $xlsx->save('hello.xlsx');
 
         $this->assertTrue(true);
     }
-    public function test_sheet()
+    public function test_func()
     {
 
         $spreadsheet = new Spreadsheet();
