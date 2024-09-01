@@ -30,7 +30,7 @@ class Excel extends TestCase
     }
 
 
-    // test_reader 加载文件测试
+    // test_reader 加载读取文件测试
     public function test_load(): void
     {
         // 创建读取器对象
