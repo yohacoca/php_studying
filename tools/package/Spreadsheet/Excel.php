@@ -55,6 +55,7 @@ class Excel extends TestCase
         $spreadSheet = new SpreadSheet();
         // 获取活动工作表
         $sheet = $spreadSheet->getActiveSheet();
+
         // 写入单元格
         $sheet->getCell("A1")->setValue("hello");
 
