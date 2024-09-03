@@ -65,6 +65,14 @@ class Excel extends TestCase
 
         $this->assertTrue(true);
     }
+
+    // test_update 修改文件
+    public function test_update(): void
+    {
+        # 加载已存在的文件
+        $xlsx = IOFactory::load("hello.xlsx");
+    }
+
     public function test_func()
     {
 
