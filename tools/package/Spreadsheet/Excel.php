@@ -70,7 +70,17 @@ class Excel extends TestCase
     public function test_update(): void
     {
         # 加载已存在的文件
-        $xlsx = IOFactory::load("hello.xlsx");
+        $spreadsheet = IOFactory::load("hello.xlsx");
+        # 获取sheet
+        $sheet = $spreadsheet->getActiveSheet();
+        # 设置值
+        $sheet->getCell("A4")->setValue("132");
+
+        # 保存到原文件或新文件
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save("hello.xlsx");
+
+        $this->assertTrue(true);
     }
 
     public function test_func()
