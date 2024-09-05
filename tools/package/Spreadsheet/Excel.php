@@ -29,7 +29,6 @@ class Excel extends TestCase
         $this->assertTrue(true);
     }
 
-
     // test_reader 加载读取文件测试
     public function test_load(): void
     {
@@ -82,6 +81,22 @@ class Excel extends TestCase
 
         $this->assertTrue(true);
     }
+
+    // test_get_all 读取所有内容
+    public function test_get_all()
+    {
+        $reader = IOFactory::createReader('xlsx');
+        $reader->setReadDataOnly(true);
+
+        $spreadsheet = $reader->load('hello.xlsx');
+        $sheet = $spreadsheet->getActiveSheet();
+
+
+
+
+        $this->assertTrue(true);
+    }
+
 
     public function test_func()
     {
