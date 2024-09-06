@@ -85,14 +85,19 @@ class Excel extends TestCase
     // test_get_all 读取所有内容
     public function test_get_all()
     {
-        $reader = IOFactory::createReader('xlsx');
+        // 创建读取器对象
+        $reader = IOFactory::createReader('Xlsx');
+        // 只读取数据
         $reader->setReadDataOnly(true);
 
+        // 加载文件
         $spreadsheet = $reader->load('hello.xlsx');
+        // 获取活动工作表
         $sheet = $spreadsheet->getActiveSheet();
 
-
-
+        // 将数据转为数组
+        $data = $sheet->toArray();
+        var_dump($data);
 
         $this->assertTrue(true);
     }
