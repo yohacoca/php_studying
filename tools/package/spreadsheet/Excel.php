@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace tools\package\Spreadsheet;
+namespace tools\package\spreadsheet;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;

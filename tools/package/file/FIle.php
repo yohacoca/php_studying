@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace tools\package\File;
+namespace tools\package\file;
 
 use PHPUnit\Framework\TestCase;
 

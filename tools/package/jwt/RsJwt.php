@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace tools\package\Jwt;
+namespace tools\package\jwt;
 
 use Firebase\JWT\JWT as FirebaseJWT;
 use Firebase\JWT\Key;
