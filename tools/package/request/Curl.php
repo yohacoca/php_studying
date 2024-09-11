@@ -15,9 +15,13 @@ class Curl extends TestCase
         'data' => 'success',
     ];
 
-    public function test_get()
+    public function test_get($data = [])
     {
         $url = 'https://example.com/api'; // 替换为目标 URL
+
+        if (!empty($params)) {
+            $url .= '?' . http_build_query($params);
+        }
 
         $ch = curl_init();
 
