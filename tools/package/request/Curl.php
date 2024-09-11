@@ -15,9 +15,12 @@ class Curl extends TestCase
         'data' => 'success',
     ];
 
+    /**
+     * @throws Exception
+     */
     public function test_get($data = [])
     {
-        $url = 'https://example.com/api'; // 替换为目标 URL
+        $url = 'https://example.com/api';
 
         if (!empty($params)) {
             $url .= '?' . http_build_query($params);
@@ -37,4 +40,34 @@ class Curl extends TestCase
 
         return json_decode($response);
     }
+
+
+    public function test_post($data = [])
+    {
+        $url = 'https://example.com/api';
+
+        $data = [
+            'param1' => 'value1',
+            'param2' => 'value2'
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo 'Curl error: ' . curl_error($ch);
+        } else {
+            echo "Response from server: " . $response;
+        }
+
+        curl_close($ch);
+    }
+
+
+
 }
