@@ -42,30 +42,22 @@ class Curl extends TestCase
     }
 
 
-    public function test_post($data = [])
+    public function test_post_form($data = [])
     {
         $url = 'https://example.com/api';
 
-        $data = [
-            'param1' => 'value1',
-            'param2' => 'value2'
-        ];
-
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); // 将参数转换为查询字符串
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
         $response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            echo 'Curl error: ' . curl_error($ch);
-        } else {
-            echo "Response from server: " . $response;
+            // 抛出异常
+            throw new Exception('Curl error: ' . curl_error($ch));
         }
 
-        curl_close($ch);
+        return json_decode($response);
     }
 
 
