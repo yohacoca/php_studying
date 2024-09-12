@@ -47,6 +47,7 @@ class Curl extends TestCase
         $url = 'https://example.com/api';
 
         $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); // 将参数转换为查询字符串
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
