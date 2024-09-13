@@ -23,7 +23,7 @@ class Curl extends TestCase
         $url = 'https://example.com/api';
 
         if (!empty($params)) {
-            $url .= '?' . http_build_query($params);
+            $url .= '?' . http_build_query($data);
         }
 
         $ch = curl_init();
@@ -60,7 +60,6 @@ class Curl extends TestCase
 
         return json_decode($response);
     }
-
 
 
 }
