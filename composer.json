@@ -17,6 +17,7 @@
     },
     "require": {
         "firebase/php-jwt": "^6.10",
-        "phpoffice/phpspreadsheet": "^2.1"
+        "phpoffice/phpspreadsheet": "^2.1",
+      "ext-curl": "*"
     }
 }
