@@ -15,15 +15,33 @@ class Curl extends TestCase
         'data' => 'success',
     ];
 
+    public function test_get($data = [])
+    {
+        $url = 'http://47.94.153.175:8080/api/get';
+        $request_data = [
+            'id' => '1',
+            'name' => '张三',
+            'age' => '23',
+        ];
+
+        try {
+            var_dump($this->get($url, $request_data));
+        } catch (Exception $e) {
+            echo "请求失败";
+            echo $e->getMessage();
+        }
+
+
+        $this->assertTrue(true);
+    }
+
     /**
      * @throws Exception
      */
-    public function test_get($data = [])
+    public function get($url, $params = []): array
     {
-        $url = 'https://example.com/api';
-
         if (!empty($params)) {
-            $url .= '?' . http_build_query($data);
+            $url .= '?' . http_build_query($params);
         }
 
         $ch = curl_init();
@@ -38,7 +56,8 @@ class Curl extends TestCase
             throw new Exception('Curl error: ' . curl_error($ch));
         }
 
-        return json_decode($response);
+        return json_decode($response, true);
+
     }
 
 
