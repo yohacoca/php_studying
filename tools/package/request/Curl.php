@@ -15,7 +15,7 @@ class Curl extends TestCase
         'data' => 'success',
     ];
 
-    public function test_get($data = [])
+    public function test_get()
     {
         $url = 'http://47.94.153.175:8080/api/get';
         $request_data = [
