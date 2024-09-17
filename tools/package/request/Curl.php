@@ -25,12 +25,32 @@ class Curl extends TestCase
         ];
 
         try {
-            var_dump($this->get($url, $request_data));
+            print_r($this->get($url, $request_data));
         } catch (Exception $e) {
             echo "请求失败";
             echo $e->getMessage();
         }
 
+
+        $this->assertTrue(true);
+    }
+
+
+    public function test_post()
+    {
+        $url = 'http://localhost:8080/api/post_form_data';
+        $request_data = [
+            'id' => '1',
+            'name' => '张三',
+            'age' => '23',
+        ];
+
+        try {
+            print_r($this->post_form_data($url, $request_data));
+        } catch (Exception $e) {
+            echo "请求失败";
+            echo $e->getMessage();
+        }
 
         $this->assertTrue(true);
     }
@@ -61,14 +81,16 @@ class Curl extends TestCase
     }
 
 
-    public function test_post_form($data = [])
+    /**
+     * @throws Exception
+     */
+    public function post_form_data($url, $params = [])
     {
-        $url = 'https://example.com/api';
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); // 将参数转换为查询字符串
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
 
@@ -77,7 +99,7 @@ class Curl extends TestCase
             throw new Exception('Curl error: ' . curl_error($ch));
         }
 
-        return json_decode($response);
+        return json_decode($response, true);
     }
 
 
