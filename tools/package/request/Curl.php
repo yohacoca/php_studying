@@ -45,12 +45,15 @@ class Curl extends TestCase
         ];
 
         try {
+//
+//            $url = 'http://localhost:8080/api/post_form_data';
+//            print_r($this->post_form_data($url, $request_data));
 
-            $url = 'http://localhost:8080/api/post_form_data';
-            print_r($this->post_form_data($url, $request_data));
+//            $url = 'http://localhost:8080/api/post_x_www_form';
+//            print_r($this->post_form_xxx_w($url, $request_data));
 
-            $url = 'http://localhost:8080/api/post_x_www_form';
-            print_r($this->post_form_xxx_w($url, $request_data));
+            $url = 'http://localhost:8080/api/post_raw';
+            print_r($this->post_form_raw($url, $request_data));
 
         } catch (Exception $e) {
             echo "请求失败";
@@ -84,7 +87,6 @@ class Curl extends TestCase
         return json_decode($response, true);
 
     }
-
 
     /**
      * @throws Exception
@@ -127,5 +129,31 @@ class Curl extends TestCase
 
         return json_decode($response, true);
     }
+
+    /**
+     * @throws Exception
+     */
+    public function post_form_raw($url, $params = [])
+    {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen(json_encode($params))
+        ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            // 抛出异常
+            throw new Exception('Curl error: ' . curl_error($ch));
+        }
+
+        return json_decode($response, true);
+    }
+
 
 }
