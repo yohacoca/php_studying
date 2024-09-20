@@ -63,9 +63,7 @@ class Curl extends TestCase
         $this->assertTrue(true);
     }
 
-    /**
-     * @throws Exception
-     */
+    // get 普通get请求
     public function get($url, $params = []): array
     {
         if (!empty($params)) {
@@ -88,9 +86,6 @@ class Curl extends TestCase
 
     }
 
-    /**
-     * @throws Exception
-     */
     public function post_form_data($url, $params = [])
     {
 
@@ -109,9 +104,6 @@ class Curl extends TestCase
         return json_decode($response, true);
     }
 
-    /**
-     * @throws Exception
-     */
     public function post_form_xxx_w($url, $params = [])
     {
 
@@ -130,9 +122,6 @@ class Curl extends TestCase
         return json_decode($response, true);
     }
 
-    /**
-     * @throws Exception
-     */
     public function post_form_raw($url, $params = [])
     {
 
