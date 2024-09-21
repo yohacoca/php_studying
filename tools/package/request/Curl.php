@@ -86,6 +86,7 @@ class Curl extends TestCase
 
     }
 
+    // post_form_data post请求 携带form-data参数
     public function post_form_data($url, $params = [])
     {
 
@@ -104,6 +105,7 @@ class Curl extends TestCase
         return json_decode($response, true);
     }
 
+    // post_form_xxx_w post请求 携带x-www-form-urlencoded参数
     public function post_form_xxx_w($url, $params = [])
     {
 
@@ -122,6 +124,7 @@ class Curl extends TestCase
         return json_decode($response, true);
     }
 
+    // post_form_raw post请求 携带原始参数
     public function post_form_raw($url, $params = [])
     {
 
