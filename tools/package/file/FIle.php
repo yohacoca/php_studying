@@ -29,11 +29,18 @@ class FIle extends TestCase
 
 
     // 读取一个文件
-    public function test_write_to_file(): void
+    public function test_read_file(): void
     {
         $file = "output.txt";
 
-        file_put_contents($file, $string);
+        $file = fopen($file, 'r');
+        if ($file) {
+
+            while (($line = fgets($file)) !== false) {
+                echo $line;
+            }
+            fclose($file);
+        }
 
         $this->assertTrue(true);
     }
