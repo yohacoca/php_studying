@@ -33,6 +33,11 @@ class FIle extends TestCase
     {
         $file = "output.txt";
 
+//--------方法一--------------
+//        将文件的每一行读入数组
+//        $lines = file($file);
+
+//--------方法二--------------
         $file = fopen($file, 'r');
         if ($file) {
 
