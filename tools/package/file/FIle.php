@@ -21,6 +21,7 @@ class FIle extends TestCase
         $file = fopen($file, 'w');
         if ($file) {
             $content = "hello world";
+            // 写入数据到文件
             fwrite($file, $content);
             fclose($file);
         }
