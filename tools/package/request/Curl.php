@@ -9,6 +9,17 @@ use PHPUnit\Framework\TestCase;
 class Curl extends TestCase
 {
 
+//    CURLOPT_URL                   设置请求的 URL
+//    CURLOPT_RETURNTRANSFER        将响应结果以字符串返回，而不是直接输出
+//    CURLOPT_POST                  指定请求为 POST 方法
+//    CURLOPT_POSTFIELDS            设置要发送的数据（POST 请求）
+//    CURLOPT_HTTPHEADER            设置 HTTP 请求头
+//    CURLOPT_TIMEOUT               设置请求超时时间（单位：秒）
+//    CURLOPT_FOLLOWLOCATION        启用时，cURL 会自动跟随服务器的 Location 重定向
+//    CURLOPT_SSL_VERIFYPEER        设置是否验证 SSL 证书（对于 HTTPS 请求）。建议在生产环境中保持为 true
+//    CURLOPT_USERAGENT             设置用户代理（User-Agent）字符串
+//    CURLOPT_WRITEFUNCTION         自定义数据写入函数，可以用于处理大数据流
+
 
     public static array $data = [
         'user' => 'root',
@@ -106,6 +117,7 @@ class Curl extends TestCase
     }
 
     // post_form_xxx_w post请求 携带x-www-form-urlencoded参数
+    // 使用 http_build_query() 处理请求数据就为x-www-form-urlencoded参数
     public function post_form_xxx_w($url, $params = [])
     {
 
