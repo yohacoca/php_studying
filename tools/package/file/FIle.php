@@ -36,7 +36,7 @@ class FIle extends TestCase
 
         //--------方法一--------------
         //        将文件的每一行读入数组
-        //        $lines = file($file);
+            //        $lines = file($file);
         //--------方法一--------------
 
         //--------方法二--------------
@@ -54,4 +54,13 @@ class FIle extends TestCase
     }
 
 
+    // 关联函数
+//    unlink(): 删除文件
+//    file_exists(): 检查文件或目录是否存在
+//    is_file(): 判断路径是否为文件
+//    filesize(): 获取文件大小
+//    is_dir(): 判断路径是否为目录
+//    mkdir(): 创建目录
+//    rmdir(): 删除空目录
+//    scandir(): 获取目录中的文件和目录列表
 }
