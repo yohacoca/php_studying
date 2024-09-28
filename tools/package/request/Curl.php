@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace tools\package\request;
 
+use CURLFile;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -87,6 +88,7 @@ class Curl extends TestCase
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $response = curl_exec($ch);
+        curl_close($ch);
 
         if (curl_errno($ch)) {
             // 抛出异常
@@ -107,6 +109,7 @@ class Curl extends TestCase
         curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
+        curl_close($ch);
 
         if (curl_errno($ch)) {
             // 抛出异常
@@ -128,6 +131,7 @@ class Curl extends TestCase
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
 
+        curl_close($ch);
         if (curl_errno($ch)) {
             // 抛出异常
             throw new Exception('Curl error: ' . curl_error($ch));
@@ -150,6 +154,7 @@ class Curl extends TestCase
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
+        curl_close($ch);
 
         if (curl_errno($ch)) {
             // 抛出异常
@@ -159,5 +164,32 @@ class Curl extends TestCase
         return json_decode($response, true);
     }
 
+    // post_form_raw post请求 携带原始参数
+    public function post_file($url, $params = [])
+    {
+
+        $filePath = 'file.txt';
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://example.com/upload');
+        curl_setopt($ch, CURLOPT_POST, true);
+
+        $cfile = new CURLFile($filePath);
+        $postData = array('file' => $cfile);
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        if (curl_errno($ch)) {
+            // 抛出异常
+            throw new Exception('Curl error: ' . curl_error($ch));
+        }
+
+
+        return json_decode($response, true);
+    }
 
 }
