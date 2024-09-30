@@ -68,6 +68,7 @@ class Guzzle extends TestCase
     }
 
     // get 普通get请求
+
     public function get($url, $params = []): array
         {
 
@@ -82,10 +83,8 @@ class Guzzle extends TestCase
                 if ($response->getStatusCode() != 200) {
                     return [ 'code' => 500 ];
                 }
-            } catch (RequestException $e) {
-                echo "Request failed: " . $e->getMessage();
-            } catch (GuzzleException $e) {
-                echo "Guzzle error: " . $e->getMessage();
+            } catch (RequestException|GuzzleException $e) {
+                throw new Exception($e->getMessage());
             }
             return json_decode( (string)$response->getBody(), true);
     }
