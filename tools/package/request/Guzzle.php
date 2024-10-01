@@ -50,16 +50,17 @@ class Guzzle extends TestCase
 
         try {
 //
-//            $url = 'http://localhost:8080/api/post_form_data';
-//            print_r($this->post_form_data($url, $request_data));
+            $url = 'http://localhost:8080/api/post_form_data';
+            print_r($this->post_form_data($url, $request_data));
 
 //            $url = 'http://localhost:8080/api/post_x_www_form';
 //            print_r($this->post_form_xxx_w($url, $request_data));
 
-            $url = 'http://localhost:8080/api/post_raw';
-            print_r($this->post_form_raw($url, $request_data));
+//            $url = 'http://localhost:8080/api/post_raw';
+//            print_r($this->post_form_raw($url, $request_data));
 
         } catch (Exception $e) {
+            print_r($e);
             echo "请求失败";
             echo $e->getMessage();
         }
@@ -70,43 +71,48 @@ class Guzzle extends TestCase
     // get 普通get请求
 
     public function get($url, $params = []): array
-        {
+    {
+        $client = new Client();
+        try {
+            // 发送 GET 请求并添加查询参数
+            $response = $client->request('GET', $url, [
+                'query' => $params
+            ]);
 
-            $client = new Client();
-            $response = null;
-            try {
-                // 发送 GET 请求并添加查询参数
-                $response = $client->request('GET', $url, [
-                    'query' => $params
-                ]);
-
-                if ($response->getStatusCode() != 200) {
-                    return [ 'code' => 500 ];
-                }
-            } catch (RequestException|GuzzleException $e) {
-                throw new Exception($e->getMessage());
+            if ($response->getStatusCode() != 200) {
+                return [ 'code' => 500 ];
             }
-            return json_decode( (string)$response->getBody(), true);
+        } catch (RequestException|GuzzleException $e) {
+            throw new Exception($e->getMessage());
+        }
+        return json_decode( (string)$response->getBody(), true);
     }
 
     // post_form_data post请求 携带form-data参数
     public function post_form_data($url, $params = [])
     {
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        if (curl_errno($ch)) {
-            // 抛出异常
-            throw new Exception('Curl error: ' . curl_error($ch));
+        $multipart = [];
+        foreach ($params as $key => $value) {
+            $multipart[] = [
+                'name' => $key,
+                'contents' => $value
+            ];
         }
 
-        return json_decode($response, true);
+        $client = new Client();
+        try {
+            // 发送 GET 请求并添加查询参数
+            $response = $client->request('POST', $url, [
+                'multipart' => $multipart
+            ]);
+
+            if ($response->getStatusCode() != 200) {
+                return [ 'code' => 500 ];
+            }
+        } catch (RequestException|GuzzleException $e) {
+            throw new Exception($e->getMessage());
+        }
+        return json_decode( (string)$response->getBody(), true);
     }
 
     // post_form_xxx_w post请求 携带x-www-form-urlencoded参数
