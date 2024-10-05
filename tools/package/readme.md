@@ -18,3 +18,9 @@
 > - composer require guzzlehttp/guzzle
 > #### 介绍
 > - Guzzle 是一个功能强大的 PHP HTTP 客户端库，可以用来发送 HTTP 请求并处理响应。它具有简洁且灵活的 API，支持多种请求类型，并适用于各种场景，如API调用、网页抓取等
+
+### TestCase
+> #### 安装
+> - composer require --dev phpunit/phpunit
+> #### 介绍
+> - TestCase 是一个在 PHP 中常用的测试基类，通常与 PHPUnit 框架一起使用
