@@ -33,4 +33,25 @@ class Test extends TestCase
         // 断言：检查栈的长度是否为 0，表示栈已为空
         $this->assertCount(0, $stack);
     }
+
+
+    /**
+     * @dataProvider additionProvider
+     * @description 数据提供者
+     */
+    public function additionProvider(): array
+    {
+        return [
+            [1, 1, 2],
+            [2, 3, 5],
+            [0, 0, 0],
+            [-1, 1, 0],
+        ];
+    }
+    public function testAddition($a, $b, $expected): void
+    {
+        $this->assertEquals($expected, $a + $b);
+    }
+
+
 }
