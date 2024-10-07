@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace tools\package\unit;
 
 use PHPUnit\Framework\TestCase;
+use tools\package\file\FIle;
 
 // 安装 composer require --dev phpunit/phpunit
 
@@ -53,5 +54,17 @@ class Test extends TestCase
         $this->assertEquals($expected, $a + $b);
     }
 
+
+    public function testUserCreation()
+    {
+        // 创建 Mock 对象
+        $mockRepository = $this->createMock(File::class);
+        $mockRepository->expects($this->once())
+            ->method('save')
+            ->with($this->isInstanceOf(User::class));
+
+        $userService = new UserService($mockRepository);
+        $userService->createUser('John Doe', 'john@example.com');
+    }
 
 }
