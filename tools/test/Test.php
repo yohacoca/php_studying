@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace tools\test;
 
-class Test
+class Test implements Saveable
 {
     private string $name;
     public function __construct()
@@ -15,7 +15,7 @@ class Test
         $this->name = $name;
     }
 
-    private function save(): void
+    public function save(): void
     {
         echo "保存: " . $this->name;
     }
