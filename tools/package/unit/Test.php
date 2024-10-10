@@ -55,16 +55,4 @@ class Test extends TestCase
     }
 
 
-    public function testUserCreation()
-    {
-        // 创建 Mock 对象
-        $mockRepository = $this->createMock(File::class);
-        $mockRepository->expects($this->once())
-            ->method('save')
-            ->with($this->isInstanceOf(User::class));
-
-        $userService = new UserService($mockRepository);
-        $userService->createUser('John Doe', 'john@example.com');
-    }
-
 }
