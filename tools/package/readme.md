@@ -24,3 +24,9 @@
 > - composer require --dev phpunit/phpunit
 > #### 介绍
 > - TestCase 是一个在 PHP 中常用的测试基类，通常与 PHPUnit 框架一起使用
+
+### TestCase
+> #### 安装
+> - composer require --dev phpunit/phpunit
+> #### 介绍
+> - TestCase 是一个在 PHP 中常用的测试基类，通常与 PHPUnit 框架一起使用
