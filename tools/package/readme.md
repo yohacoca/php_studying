@@ -27,6 +27,6 @@
 
 ### TestCase
 > #### 安装
-> - composer require --dev phpunit/phpunit
+> - composer require tecnickcom/tcpdf
 > #### 介绍
-> - TestCase 是一个在 PHP 中常用的测试基类，通常与 PHPUnit 框架一起使用
+> - TCPDF 是一个功能强大的 PHP 类库，可以生成 PDF 文件。它支持多种语言、图形和条形码等
