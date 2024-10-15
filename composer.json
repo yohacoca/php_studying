@@ -20,6 +20,7 @@
         "phpoffice/phpspreadsheet": "^2.1",
         "ext-curl": "*",
         "guzzlehttp/guzzle": "^7.9",
-        "php-amqplib/php-amqplib": "^2.8"
+        "php-amqplib/php-amqplib": "^2.8",
+        "tecnickcom/tcpdf": "^6.7"
     }
 }
