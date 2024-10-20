@@ -28,7 +28,6 @@ class Pdf extends TestCase
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
         //设置自动分页符
-
         $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
         // 输入PDF文档
