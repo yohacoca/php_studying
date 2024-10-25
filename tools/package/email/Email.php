@@ -7,4 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class Email extends TestCase
 {
+
+    function test()
+    {
+
+    }
 }

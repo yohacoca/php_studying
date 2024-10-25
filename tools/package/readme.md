@@ -30,3 +30,10 @@
 > - composer require tecnickcom/tcpdf
 > #### 介绍
 > - TCPDF 是一个功能强大的 PHP 类库，可以生成 PDF 文件。它支持多种语言、图形和条形码等
+> - 
+### Mailer
+> #### 安装
+> - composer require phpmailer/phpmailer
+> #### 介绍
+> - PHPMailer 是一个功能强大的邮件发送库，支持 SMTP 认证，能够发送 HTML 邮件和附件等
+
