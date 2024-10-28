@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace tools\package\email;
 
+use PHPMailer\PHPMailer\PHPMailer;
 use PHPUnit\Framework\TestCase;
 
 class Email extends TestCase
@@ -10,27 +11,30 @@ class Email extends TestCase
 
     function test()
     {
-        $mail = new PHPMailer(true);
         //设定邮件编码,默认ISO-8859-1,如果发中文此项必须设置，否则乱码
+        $mail = new PHPMailer(true);
+
+        //-------------  服务器设置 -----------
+        // 设定邮件编码,默认ISO-8859-1,如果发中文此项必须设置，否则乱码
         $mail->CharSet = 'UTF-8';
-        # 服务器设置
-        //启用详细调试输出
-        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
         // 使用SMTP发送
         $mail->isSMTP();
-        //要发送的SMTP服务器
+        // SMTP服务器
         $mail->Host = 'smtp.qq.com';
-        //启用SMTP身份验证
+        // 启用SMTP身份验证
         $mail->SMTPAuth = true;
-        //SMTP用户名
-        $mail->Username = '754081611@qq.com';
-        //SMTP密码
-        $mail->Password = 'mftcnkcrrcixxxxx';
-        //启用隐式TLS加密
+        // SMTP用户名
+        $mail->Username = '2448202116@qq.com';
+        // SMTP密码
+        $mail->Password = 'ccoohwffwhamebbj';
+        // 启用隐式TLS加密
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        //要连接到的TCP端口
+        // TCP端口
         $mail->Port = 465;
-        #发件人信息
+
+
+        //-------------  发件人设置 -----------
+        //
         $mail->setFrom('23426945@qq.com', '又拍云');
         #收件人列表,可将邮件发送给多个邮箱,命令格式:
         //$mail->addAddress('收件人邮箱', '姓名');
