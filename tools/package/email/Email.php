@@ -31,7 +31,7 @@ class Email extends TestCase
         // 启用隐式TLS加密
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         // TCP端口
-        $mail->Port = 465;
+        $mail->Port = 587;
 
 
         //-------------  发件人设置 -----------
@@ -51,6 +51,7 @@ class Email extends TestCase
             $mail->Subject = 'test mail';
             # 邮件内容
             $mail->Body = "您的验证码为: <h1>{test mail}</h1>";
+            # 发送
             $mail->send();
         } catch (Exception $e) {
             var_dump($e->getMessage());
