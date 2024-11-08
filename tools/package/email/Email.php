@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class Email extends TestCase
 {
+    // 属性必须更改为大写 $mail->Mailer = "SMTP";
 
     function test_send()
     {
@@ -31,7 +32,7 @@ class Email extends TestCase
         // 启用隐式TLS加密
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         // TCP端口
-        $mail->Port = 587;
+        $mail->Port = 465;
 
 
         //-------------  发件人设置 -----------
